@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-10 12:59+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+
+#: {PROJECT_NAME}/api_v1/accounts/serializers.py
+msgid "User account is disabled."
+msgstr "Аккаунт пользователя отключен."
+
+#: {PROJECT_NAME}/api_v1/accounts/serializers.py
+msgid "Unable to log in with provided credentials."
+msgstr "Невозможно войти с предоставленными учетными данными."
+
+#: {PROJECT_NAME}/api_v1/accounts/serializers.py
+msgid "Password"
+msgstr "Пароль"
+
+#: {PROJECT_NAME}/api_v1/accounts/views.py
+msgid "Invalid password"
+msgstr "Неверный пароль"
+
+#: {PROJECT_NAME}/api_v1/accounts/views.py
+msgid "The new password cannot be the same as the old password"
+msgstr "Новый пароль не может быть таким же, как старый пароль"
+
+#: {PROJECT_NAME}/api_v1/apps.py
+msgid "API"
+msgstr "API"
+
+#: {PROJECT_NAME}/api_v1/handlers_views.py {PROJECT_NAME}/ws_v1/consumer.py
+msgid "Request error"
+msgstr "Ошибка обработки запроса"
+
+#: {PROJECT_NAME}/notifications/apps.py
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: {PROJECT_NAME}/permissions/apps.py
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: {PROJECT_NAME}/permissions/permissions.py
+msgid "User has no permissions to do this"
+msgstr "Пользователь не имеет разрешений на это действие"
+
+#: {PROJECT_NAME}/users/apps.py {PROJECT_NAME}/users/models.py
+msgid "Users"
+msgstr "Пользователи"
+
+#: {PROJECT_NAME}/users/models.py
+msgid "Russian"
+msgstr "Русский"
+
+#: {PROJECT_NAME}/users/models.py
+msgid "English"
+msgstr "English"
+
+#: {PROJECT_NAME}/users/models.py
+msgid "User language"
+msgstr "Язык пользователя"
+
+#: {PROJECT_NAME}/users/models.py
+msgid "User"
+msgstr "Пользователь"
+
+#: {PROJECT_NAME}/ws_v1/apps.py
+msgid "Socket app"
+msgstr "Socket приложение"

@@ -1,0 +1,6 @@
+@use 'vuetify/settings' with (
+  $switch-inset-track-height: 24px,
+  $switch-inset-track-width: 44px
+);
+
+$nav-bar-height: 64px;

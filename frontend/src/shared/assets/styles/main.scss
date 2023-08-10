@@ -1,0 +1,75 @@
+@import 'variables';
+
+html {
+  overflow-y: hidden !important;
+}
+
+.scroll_style {
+  overflow: auto;
+  scrollbar-color: rgba(var(--v-theme-primary), 0.4);
+  scrollbar-width: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--v-theme-primary), 0.4);
+  border-radius: 2rem;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(var(--v-theme-primary), 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--v-theme-primary), 0.4);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from {
+  opacity: 0;
+}
+.v-leave-to {
+  opacity: 1;
+}
+
+.app-container {
+  position: relative;
+  overflow-y: hidden;
+  display: flex;
+  height: 100vh;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+nav {
+  padding: 10px 0;
+
+  a {
+    font-weight: bold;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+
+a {
+  color: #42b983;
+}

@@ -1,0 +1,14 @@
+@mixin fade-animation($duration) {
+  .fade-leave-to,
+  .fade-enter-from {
+    opacity: 0;
+  }
+  .fade-leave-active,
+  .fade-enter-active {
+    transition: all $duration cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .fade-leave-from,
+  .fade-enter-to {
+    opacity: 1;
+  }
+}
