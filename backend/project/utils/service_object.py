@@ -9,17 +9,14 @@ from {PROJECT_NAME}.utils.attrdict import AttrDict
 from {PROJECT_NAME}.utils.logger import LoggerMixin
 
 
-class EasyBindMixin:
+class Ok(OOk):
     def __or__(self, other):
         return self.bind(other)
 
 
-class Ok(OOk, EasyBindMixin):
-    pass
-
-
-class Error(OError, EasyBindMixin):
-    pass
+class Error(OError):
+    def __or__(self, other):
+        return Error(self._error)
 
 
 class ServiceObject(LoggerMixin):
