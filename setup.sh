@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 yellow=$(tput setaf 3)
@@ -8,6 +10,7 @@ reset=$(tput sgr0)
 PROJECT=${1:-project}
 PYTHON_VERSION="3.10"
 VENV_NAME="ENV"
+PROJECT=$(sed "s/[^a-zA-Z]/_/g" <<<"$PROJECT")
 HUMAN_PROJECT_NAME=$(sed "s/_/ /g" <<<"$PROJECT")
 HUMAN_PROJECT_NAME_CAPITALIZED=${HUMAN_PROJECT_NAME^}
 
