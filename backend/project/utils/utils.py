@@ -2,11 +2,11 @@ import logging
 from pathlib import Path
 from typing import Generic, Iterator, Optional, TypeVar
 
-from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db.models import QuerySet
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated as NotAuthenticatedDRF, ValidationError as ValidationErrorDRF
 from rest_framework.views import exception_handler

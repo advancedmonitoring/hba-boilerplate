@@ -100,8 +100,9 @@ print_tutorial() {
   echo "    Go to rtd to start              https://readthedocs.org/"
 }
 
-remove_setup() {
+remove_extra_data() {
   rm setup.sh
+  rm -rf .git
 }
 
 update_project_files
@@ -109,4 +110,4 @@ create_virtualenv
 activate_virtualenv
 install_dependencies
 print_tutorial
-remove_setup
+remove_extra_data
