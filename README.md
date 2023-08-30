@@ -44,6 +44,24 @@
 
 ## Особенности
 
+<p align="center">
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/e912289a-cb18-405a-93fb-a13a824ebd14" alt="api-ws"/>
+&nbsp;
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/73e231b0-8850-45a8-9a36-6b7ef20478d5" alt="low-fw-rel"/>
+</p>
+
+<p align="center">
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/69b7dbc8-c9d0-486b-ae53-2e6b269052f6" alt="result"/>
+&nbsp;
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/786b13a8-9c6c-4603-b1ad-b5dfc47c1580" alt="done"/>
+</p>
+
+<p align="center">
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/21898bf1-caff-4bd5-ae70-b05ffffe5f0f" alt="docs"/>
+&nbsp;
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/67782d02-9f5e-4b21-af8c-cfccd73229a5" alt="ws-docs"/>
+</p>
+
 ## Настройка установки
 
 Скрипт `setup.sh` содержит ряд команд, которые выполняются последовательно:
