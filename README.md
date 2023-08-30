@@ -53,21 +53,21 @@
 ## Особенности
 
 <p align="center">
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/e912289a-cb18-405a-93fb-a13a824ebd14" alt="api-ws"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/aaf79e3b-ba3b-4326-ac7d-afb562132c1b" alt="api-ws"/>
 &nbsp;
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/73e231b0-8850-45a8-9a36-6b7ef20478d5" alt="low-fw-rel"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/7967f48f-0b06-4c4b-af53-a2cb5b8df429" alt="low-fw-rel"/>
 </p>
 
 <p align="center">
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/69b7dbc8-c9d0-486b-ae53-2e6b269052f6" alt="result"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/b383e02f-062e-4f6e-a12a-3a511074f196" alt="result"/>
 &nbsp;
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/786b13a8-9c6c-4603-b1ad-b5dfc47c1580" alt="done"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/9a1a5997-df27-4b72-b03e-5dc33191350c" alt="done"/>
 </p>
 
 <p align="center">
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/21898bf1-caff-4bd5-ae70-b05ffffe5f0f" alt="docs"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/5597357e-bca9-41bb-943f-fbe58deae0f0" alt="docs"/>
 &nbsp;
-    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/67782d02-9f5e-4b21-af8c-cfccd73229a5" alt="ws-docs"/>
+    <img width="49%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/ed176a00-f65f-43c5-9191-dd929bf1061e" alt="ws-docs"/>
 </p>
 
 ## Настройка установки
