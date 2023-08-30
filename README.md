@@ -8,21 +8,20 @@
 } -->
 
 <div align="center">
-
-<h1 align="center">
+  <h6 align="center">
     <a href="https://amonitoring.ru/#gh-light-mode-only">
     <img width="20%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/9522302b-bd18-47c8-961d-e1da3cfddd80">
     </a>
     <a href="https://amonitoring.ru/#gh-dark-mode-only">
     <img width="20%" src="https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/0aad4d95-9a59-45e9-ab92-29cd8708e7a5">
     </a>
-</h1>
+  </h6>
 
 # Handler Based Arch Boilerplate
 
-Шаблон позволяет быстро запустить новый проект на основе **HBA** архитектуры.
+Шаблон позволяет быстро запустить новый проект на основе **HBA** архитектуры
 
-Данная архитектура дает возможность быстрой разработки высоко интерактивного `клиент - серверного` приложения.
+Данная архитектура дает возможность быстрой разработки высоко-интерактивного <br/>`клиент - серверного` приложения
 
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
