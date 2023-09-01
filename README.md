@@ -36,7 +36,7 @@
 
 ## Введение
 
-![render1693392090674-min](https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/c8b055ed-4ab3-4ad5-90cd-925f7cd9f7f5)
+![setupGif](https://github.com/advancedmonitoring/hba-boilerplate/assets/15703713/c8b055ed-4ab3-4ad5-90cd-925f7cd9f7f5)
 
 `HBA` архитектура создана, чтобы помочь разработчикам сосредоточится на бизнес-логике. Каждое приложение 
 на основе данной архитектуры имеет простой и понятный процесс валидации, проверки, и обработки запроса из любого 
