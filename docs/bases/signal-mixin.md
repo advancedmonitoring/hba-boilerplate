@@ -66,3 +66,10 @@ some_signal.send(sender=SomeSender, name="Vasya", age=10)
 some_signal.send(sender=SomeSender, name="Vasya", age=20)
 some_signal.send(sender=SomeSender, name="Vasya", age=30)
 ```
+
+<div align="center">
+  
+  [⇜ Базовые классы: ValidationMixin](validation-mixin.md)
+  •
+  [Базовые классы: BaseDataHandler ⇝](data-handler.md)
+</div>
