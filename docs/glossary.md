@@ -28,5 +28,5 @@
   
   [⇜ Введение](about.md)
   •
-  [Порядок обработки запроса ⇝](request-pipeline.md.md)
+  [Порядок обработки запроса ⇝](request-pipeline.md)
 </div>
