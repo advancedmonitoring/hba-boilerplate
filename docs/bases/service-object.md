@@ -111,6 +111,8 @@ class UpdateBooksService(ServiceObject):
         Book.objects.bulk_create(context.book_objects)
         return self.success()
 
+    @transactional
+    @service_call
     def __call__(self, author: User):
         """
         Основной метод, который вызывается для работы сервиса. Передает все входящие данные в метод success для 
@@ -161,3 +163,10 @@ elif result.is_ok():
     метод make_books """
     print(books)
 ```
+
+<div align="center">
+  
+  [⇜ Базовые классы: HandlerView](base-handler-view.md)
+  •
+  [Базовые классы: Consumer ⇝](consumer.md)
+</div>
