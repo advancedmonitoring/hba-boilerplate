@@ -157,3 +157,15 @@ frontend сервер (`npm run serve`).
   * [HandlerView](docs/bases/base-handler-view.md)
   * [ServiceObject](docs/bases/service-object.md)
   * [Consumer](docs/bases/consumer.md)
+
+
+## Участники
+
+<a href="https://github.com/kiselas"><img src="https://avatars.githubusercontent.com/u/70576848?v=4" title="kiselas" width="50" height="50"></a>
+<a href="https://github.com/hpawa"><img src="https://avatars.githubusercontent.com/u/45428746?v=4" title="hpawa" width="50" height="50"></a>
+<a href="https://github.com/Codek32"><img src="https://avatars.githubusercontent.com/u/9204414?v=4" title="codek32" width="50" height="50"></a>
+<a href="https://github.com/Aleksey170999"><img src="https://avatars.githubusercontent.com/u/91157178?v=4" title="Aleksey170999" width="50" height="50"></a>
+<a href="https://github.com/salykin"><img src="https://avatars.githubusercontent.com/u/2499169?v=4" title="salykin" width="50" height="50"></a>
+<a href="https://github.com/achievement008"><img src="https://avatars.githubusercontent.com/u/15703713?v=4" title="achievement008" width="50" height="50"></a>
+<a href="https://github.com/Donnicool"><img src="https://avatars.githubusercontent.com/u/114762347?v=4" title="Donnicool" width="50" height="50"></a>
+<a href="https://github.com/Vad1q"><img src="https://avatars.githubusercontent.com/u/66086848?v=4" title="Vad1q" width="50" height="50"></a>
