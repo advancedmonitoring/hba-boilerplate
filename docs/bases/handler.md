@@ -13,3 +13,10 @@
 базового `View`.
 * `prepare_data` - метод подготовки данных с помощью указанного в классе `data_handler`. По умолчанию он вызывается в 
   классе базового `View`.
+
+<div align="center">
+  
+  [⇜ Базовые классы: BaseDataHandler](data-handler.md)
+  •
+  [Базовые классы: EventPermissions ⇝](event-permissions.md)
+</div>
