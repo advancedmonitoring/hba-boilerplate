@@ -18,3 +18,10 @@
 * `_get_prepared_data` - метод обработки и подготовки даных запроса. Сначала проводит валидацию с помощью указанного 
 `serializer_class`, после чего, очищенные данные передаются в метод `prepare_data` указанного хэндлера.
 * `_get_request_data` - метод получения данных запроса.
+
+<div align="center">
+  
+  [⇜ Базовые классы: EventPermissions](event-permissions.md)
+  •
+  [Базовые классы: ServiceObject ⇝](service-object.md)
+</div>
