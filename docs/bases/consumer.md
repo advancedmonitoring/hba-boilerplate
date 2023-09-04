@@ -79,3 +79,8 @@ send_to_socket_group(
   `consumer`, вызывает этот метод, передавая ему данные из сообщения.
 * `send_data` - метод отправки данных в подключение.
 * `send_notify` - метод отправки в сокет уведомления.
+
+<div align="center">
+  
+  [⇜ Базовые классы: ServiceObject](service-object.md)
+</div>
