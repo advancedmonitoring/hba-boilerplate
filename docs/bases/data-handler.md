@@ -91,3 +91,10 @@ def _prepare_author_id(self):
 def _prepare_book_id(self):
     return Book.objects.get(author=self.author)
 ```
+
+<div align="center">
+  
+  [⇜ Базовые классы: SignalMixin](signal-mixin.md)
+  •
+  [Базовые классы: BaseHandler ⇝](handler.md)
+</div>
