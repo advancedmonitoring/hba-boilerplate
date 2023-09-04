@@ -22,5 +22,5 @@
 
 <div align="center">
   
-  [Глоссарий ⇝](docs/glossary.md)
+  [Глоссарий ⇝](glossary.md)
 </div>
