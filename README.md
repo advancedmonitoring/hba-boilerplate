@@ -26,7 +26,7 @@
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg?style=flat-square)](https://www.python.org/downloads/release/python-3100/)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg?style=flat-square)](https://www.python.org/downloads/release/python-3110/)
 [![Advanced Monitoring HBA](https://img.shields.io/badge/AM-HBA-orange?style=flat-square)](https://amonitoring.ru/)
-[![Telegram channel](https://img.shields.io/badge/Telegram%20Channel-2ba4df?style=flat-square&logo=telegram)](https://t.me/+7NYIPIP61o80Mzky)
+[![Telegram channel](https://img.shields.io/badge/Telegram%20Channel-2ba4df?style=flat-square&logo=telegram)](https://t.me/+ykplVtIK-0tmZGUy)
 
 [Введение](#введение) •
 [Особенности](#особенности) •
