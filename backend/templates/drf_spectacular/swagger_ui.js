@@ -188,6 +188,10 @@ const socketEventsPlugin = function (system) {
             }
             messages[path].push({message, type})
 
+            if (maxWSMessages && messages[path].length > maxWSMessages) {
+              messages[path].shift()
+            }
+
             return state.set("messages", {...messages})
           },
 
@@ -311,76 +315,102 @@ const socketEventsPlugin = function (system) {
           React.createElement("td", {class: "response-col_description ws-message-response"}, body)
         )
       },
-      SocketConnection({url, socketSelectors, socketActions}) {
+      SocketConnection({url, socketSelectors, socketActions, ...props}) {
+        const {layoutSelectors, layoutActions} = props
+
         const {React} = system
         const prevSocket = socketSelectors.socket(url)
-        if (!prevSocket) {
+        if (!prevSocket && swaggerSettings.connectSocket) {
           system.fn.makeSocket(socketActions, url)
         }
 
         const Message = system.getComponent("Message")
+        const ArrowUpIcon = system.getComponent("ArrowUpIcon")
+        const ArrowDownIcon = system.getComponent("ArrowDownIcon")
 
-        const onClick = () => {
+        let isShown = layoutSelectors.isShown(['operations-tag', `ws-${url}`])
+
+        if (isShown === undefined) {
+          isShown = swaggerSettings.socketMessagesInitialOpened
+        }
+
+        function toggleShown() {
+          layoutActions.show(['operations-tag', `ws-${url}`], !isShown)
+        }
+
+        const toggle = React.createElement("button",
+          {class: "opblock-control-arrow", tabIndex: -1, onClick: toggleShown},
+          isShown ?
+            React.createElement(ArrowDownIcon, {class: "arrow"}) :
+            React.createElement(ArrowUpIcon, {class: "arrow"}),
+        )
+
+
+        const clearMessages = () => {
           socketActions.clearMessages({path: url})
         }
         const socketStatus = socketSelectors.socketStatus(url)
         const socketStatusMarker = socketSelectors.socketStatusMarker(url)
         const socketMessages = socketSelectors.socketMessages(url)
 
-        const messages = socketMessages.map(message => React.createElement(Message, message))
-
-        const name = React.createElement("span", {}, `WebSocket connection state: ${url}`)
-        const link = React.createElement("a", {class: "nostyle"}, name)
-        const header = React.createElement("h3", {
-          class: "opblock-tag no-desc", id: `operations-tag-WS_connection_state-${url}`, "data-is-open": true
-        }, link)
-
-        const table = React.createElement("table", {
-            class: "responses-table",
-            "aria-live": "polite",
-            role: "region",
-          },
-          React.createElement("thead", {},
-            React.createElement("tr", {class: "responses-header"},
-              React.createElement("td", {class: "col_header response-col_event"}, "Type"),
-              React.createElement("td", {class: "col_header response-col_body"}, "Body"),
-            )
-          ),
-          React.createElement("tbody", {}, ...messages)
-        )
         const receivedMsgsCount = socketMessages.filter((msg) => msg.type === "receive").length
         const sentMsgsCount = socketMessages.length - receivedMsgsCount
         const totalMsgs = `Total messages: sent: ${sentMsgsCount}, received: ${receivedMsgsCount}`
 
-        return React.createElement("div", {},
-          React.createElement("style", {}, "td.ws-message-response h5 { display: none }"),
-          header,
-          React.createElement("div", {class: "no-margin"},
-            React.createElement("div", {class: "operation-tag-content"},
-              React.createElement("span", {},
-                React.createElement("div", {
-                    class: `opblock opblock-${socketStatusMarker}`,
-                    id: "operations-WS-connection_status"
-                  },
-                  React.createElement("div", {class: "opblock-summary opblock-summary-post"},
-                    React.createElement("span", {
-                      class: "opblock-summary-method",
-                      style: {minWidth: 140}
-                    }, socketStatus.toUpperCase()),
-                    React.createElement("span", {class: "opblock-summary-path"}, totalMsgs),
-                    React.createElement("button", {
-                      class: "btn ml-auto cancel",
-                      onClick
-                    }, "Clear messages"),
-                  ),
+        let table = null
 
-                  React.createElement("div", {class: "responses-inner"},
-                    React.createElement("div", {class: "opblock-body"}, table)
-                  ),
-                )
+        if (isShown) {
+          const messages = socketMessages.map(message => React.createElement(Message, message))
+
+          table = React.createElement("table", {
+              class: "responses-table",
+              "aria-live": "polite",
+              role: "region",
+            },
+            React.createElement("thead", {},
+              React.createElement("tr", {class: "responses-header"},
+                React.createElement("td", {class: "col_header response-col_event"}, "Type"),
+                React.createElement("td", {class: "col_header response-col_body"}, "Body"),
+              )
+            ),
+            React.createElement("tbody", {}, ...messages)
+          )
+        }
+
+
+        const socketMessagesComponent = React.createElement("span", {},
+          React.createElement("div", {
+              class: "opblock opblock-get",
+              id: `operations-tag-WS_connection_state-${url}`,
+            },
+            React.createElement("div", {class: "opblock-summary opblock-summary-get"},
+              React.createElement("button", {class: "opblock-summary-control", onClick: toggleShown},
+                React.createElement("span", {
+                  class: `opblock-summary-method opblock-${socketStatusMarker}`,
+                  style: {minWidth: 140}
+                }, socketStatus.toUpperCase()),
+                React.createElement("span", {class: "opblock-summary-path"}, `WebSocket connection state: ${url}`),
+                React.createElement("span", {class: "opblock-summary-path"}, totalMsgs),
+              ),
+              React.createElement("button", {
+                class: "btn ml-auto cancel",
+                onClick: clearMessages,
+              }, "Clear messages"),
+              toggle,
+            ),
+            React.createElement("div", {class: "no-margin"},
+              React.createElement("div", {class: "operation-tag-content"},
+                isShown ? React.createElement("div", {class: "responses-inner"},
+                      React.createElement("div", {class: "opblock-body"}, table)
+                    ) : null,
               )
             )
           )
+        )
+
+        return React.createElement("div", {},
+          React.createElement("style", {}, "td.ws-message-response h5 { display: none }"),
+          socketMessagesComponent,
         )
       }
     },
@@ -454,6 +484,16 @@ const swaggerSettings = {{ settings|safe }};
 const schemaAuthNames = {{ schema_auth_names|safe }};
 let schemaAuthFailed = false;
 const plugins = [socketEventsPlugin];
+
+const getMaxMessages = () => {
+  if (swaggerSettings.socketMaxMessages) {
+    const max = swaggerSettings.socketMaxMessages
+    return Number.parseInt(max) || 0
+  }
+  return 0
+}
+
+const maxWSMessages = getMaxMessages()
 
 const reloadSchemaOnAuthChange = () => {
   return {
