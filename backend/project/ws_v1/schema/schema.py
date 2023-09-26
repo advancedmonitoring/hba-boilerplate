@@ -101,6 +101,9 @@ class ConsumerAutoSchema(AutoSchema):
     def get_tags(self):
         return ["Web Socket"]
 
+    def get_description(self):
+        return ""
+
     def _force_ws_serializer(self, serializer, direction: Optional[str] = None) -> Dict[str, serializers.Serializer]:
         serializer = force_instance(serializer)
 

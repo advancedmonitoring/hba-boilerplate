@@ -104,6 +104,9 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
     "SWAGGER_UI_SETTINGS": {
         "filter": True,
+        "connectSocket": True,
+        "socketMaxMessages": 30,
+        "socketMessagesInitialOpened": False,
     },
     "COMPONENT_SPLIT_REQUEST": True,
     "DEFAULT_GENERATOR_CLASS": "config.schema.CustomSchemaGenerator",
