@@ -173,4 +173,3 @@ frontend сервер (`npm run serve`).
 <a href="https://github.com/salykin"><img src="https://avatars.githubusercontent.com/u/2499169?v=4" title="salykin" width="50" height="50"></a>
 <a href="https://github.com/Donnicool"><img src="https://avatars.githubusercontent.com/u/114762347?v=4" title="Donnicool" width="50" height="50"></a>
 <a href="https://github.com/Vad1q"><img src="https://avatars.githubusercontent.com/u/66086848?v=4" title="Vad1q" width="50" height="50"></a>
-<a href="https://github.com/IMegaMaan"><img src="https://avatars.githubusercontent.com/u/69349808?v=4" title="IMegaMaan" width="50" height="50"></a>
