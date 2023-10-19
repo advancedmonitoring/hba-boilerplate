@@ -6,9 +6,7 @@ from itertools import chain
 from typing import Any, Callable, DefaultDict, Dict, Set, Type, Optional, List
 
 from django.contrib.auth import get_user_model
-from django.utils.translation import gettext_lazy as _
 
-from {PROJECT_NAME}.main.models import Note, Todo
 
 User = get_user_model()
 
@@ -26,6 +24,11 @@ class NotReady(Exception):
 
 class DependencyCannotBeResolved(Exception):
     """ Значение атрибута не может быть вычислено для текущего контекста """
+    pass
+
+
+class RelatedFieldError(Exception):
+    """ Ошибка вычисления зависимого поля """
     pass
 
 
@@ -60,6 +63,9 @@ class BaseDataHandler:
         """
         # Класс обработчик
         self.handler: Type[BaseHandler] = handler
+
+        # Ошибки валидации атрибутов
+        self.error_fields: Set[str] = set()
 
         # Данные, которые необходимо подготовить
         self.data: Dict[str, Any] = data
@@ -103,11 +109,18 @@ class BaseDataHandler:
             """ Иначе берём из исходных данных """
             return self.data[item]
 
+        """ Проверка ошибочных вычислений """
+        self._check_is_error_prepare(item)
+
         """ Проверка циклических зависимостей """
         self._check_circular(item)
 
         """ Иначе - атрибут ещё не готов """
         raise NotReady(item)
+
+    def _check_is_error_prepare(self, item: str):
+        if item in self.error_fields:
+            raise RelatedFieldError(item)
 
     def _check_circular(self, item: str):
         """
@@ -147,6 +160,8 @@ class BaseDataHandler:
         :return:
         """
         data_keys: List[str] = list(self.data.keys())
+        errors: DefaultDict[str, List[str]] = defaultdict(list)
+
         while data_keys:
             """ Пока есть неготовые атрибуты """
             name: str = data_keys.pop(0)
@@ -155,6 +170,20 @@ class BaseDataHandler:
             if prepare_method:
                 try:
                     value: Any = prepare_method()
+                except self.handler.exception as exc:
+                    self.error_fields.add(self._prepared_names[name])
+
+                    if exc.errors:
+                        errors.update(exc.errors)
+                    else:
+                        errors[exc.field or name].append(str(exc))
+
+                    continue
+
+                except RelatedFieldError:
+                    self.error_fields.add(self._prepared_names[name])
+                    continue
+
                 except NotReady:
                     """ Если на данной итерации необходимые значения не готовы - ставим в конец списка """
                     data_keys.append(name)
@@ -164,6 +193,9 @@ class BaseDataHandler:
                 value: Any = self.data[name]
 
             self.prepared_data.update({self._prepared_names[name]: value})
+
+        if errors:
+            raise self.handler.exception(errors=dict(errors))
 
         return self.prepared_data
 
@@ -204,7 +236,26 @@ class BaseDataHandler:
 
 
 class HandlerException(Exception):
-    pass
+    def __init__(self,
+                 msg: Optional[str] = None,
+                 field: Optional[str] = None,
+                 errors: Optional[Dict[str, List[str]]] = None):
+
+        assert any([msg, errors]), "Msg or errors required!"
+
+        if msg is None:
+            field_errors: List[str] = next(iter(errors.values()))
+            msg: str = field_errors[0]
+
+        super().__init__(msg)
+        self.msg: str = msg
+        self.field: Optional[str] = field
+
+        if field and errors is None:
+            self.errors = {field: [msg]}
+
+        else:
+            self.errors: Optional[Dict[str, List[str]]] = errors
 
 
 class BaseHandler(metaclass=ABCMeta):

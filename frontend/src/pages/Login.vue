@@ -28,7 +28,7 @@
         </Field>
       </v-card-text>
       <v-card-actions class="px-0 py-4">
-        <LoginButton :disabled="!isValid" :username="username" :password="password" />
+        <LoginButton ref="loginButton" :disabled="!isValid" :username="username" :password="password" />
       </v-card-actions>
     </v-card>
   </v-layout>
@@ -45,6 +45,7 @@
   import BaseTextField from '@/shared/ui/BaseTextField'
 
   useForm()
+  const loginButton = ref(null)
 
   const username = ref('')
   const password = ref('')
@@ -53,7 +54,7 @@
 
   const onSubmit = () => {
     if (isValid.value) {
-      useUserStore().loginUser({ username: username.value, password: password.value })
+      loginButton.value.login()
     }
   }
 

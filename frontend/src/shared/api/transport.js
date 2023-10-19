@@ -14,16 +14,16 @@ class Transport {
     return to(formDataAxiosClient.post(url, params, config), handleStatus)
   }
 
-  async sendPut(url, params = {}) {
-    return to(axiosClient.put(url, params))
+  async sendPut(url, params = {}, handleStatus = true) {
+    return to(axiosClient.put(url, params), handleStatus)
   }
 
-  async sendPatch(url, params = {}) {
-    return to(axiosClient.patch(url, params))
+  async sendPatch(url, params = {}, handleStatus = true) {
+    return to(axiosClient.patch(url, params), handleStatus)
   }
 
-  async sendDelete(url, params = {}) {
-    return to(axiosClient.delete(url, { params }))
+  async sendDelete(url, params = {}, handleStatus = true) {
+    return to(axiosClient.delete(url, { params }), handleStatus)
   }
 }
 

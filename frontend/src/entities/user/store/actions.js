@@ -1,5 +1,3 @@
-import { dispatch } from '@/shared/utils/dispatch'
-
 import Api from '../api/auth'
 
 export const actions = {
@@ -19,8 +17,7 @@ export const actions = {
         }
       })
       .catch((error) => {
-        const message = error.response.data.detail
-        dispatch('alert', 'addAlert', { type: 'error', message })
+        return Promise.reject(error)
       })
   },
 

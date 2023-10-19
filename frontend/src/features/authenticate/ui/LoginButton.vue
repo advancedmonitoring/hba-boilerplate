@@ -7,13 +7,16 @@
   import { watch } from 'vue'
   import { useRouter } from 'vue-router'
 
+  import { useAlertsStore } from '@/entities/alerts'
   import { useUserStore } from '@/entities/user'
 
+  import { ALERT_TYPES } from '@/shared/const/enums'
   import BaseButton from '@/shared/ui/BaseButton'
 
   const router = useRouter()
   const currentRoute = router.currentRoute.value
   const userStore = useUserStore()
+  const { addAlert } = useAlertsStore()
   const { isLogged } = storeToRefs(userStore)
 
   const props = defineProps({
@@ -21,7 +24,10 @@
     password: String,
   })
 
-  const login = () => userStore.loginUser(props)
+  const login = () =>
+    userStore.loginUser(props).catch((e) => {
+      addAlert({ message: e.error.response.data.errors?.[0]?.message, type: ALERT_TYPES.ERROR })
+    })
 
   watch(isLogged, (val) => {
     if (val) {
@@ -33,4 +39,8 @@
       router.push({ name: 'home' }).catch()
     }
   })
+  defineExpose({
+    login,
+  })
 </script>
+
