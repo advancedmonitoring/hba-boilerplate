@@ -121,7 +121,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "config.schema.CustomAutoSchema",
-    "EXCEPTION_HANDLER": "{PROJECT_NAME}.utils.utils.custom_exception_handler",
+    "EXCEPTION_HANDLER": "{PROJECT_NAME}.api_v1.exception_handler.exception_handler",
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
 }

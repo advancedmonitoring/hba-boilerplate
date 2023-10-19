@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model, login, logout
 from django.http import JsonResponse
-from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import permissions, status
 from rest_framework.generics import GenericAPIView
@@ -105,18 +104,9 @@ class ChangePasswordView(GenericAPIView):
     serializer_class = ChangePasswordSerializer
 
     def post(self, request, *args, **kwargs):
-        """"""
         current_user = request.user
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
-        if not current_user.check_password(serializer.data.get("old_password")):
-            return Response(data={"detail": _("Invalid password")}, status=status.HTTP_400_BAD_REQUEST)
-
-        if serializer.data.get("new_password") == serializer.data.get("old_password"):
-            return Response(data={"detail": _("The new password cannot be the same as the old password")},
-                            status=status.HTTP_400_BAD_REQUEST)
-
         current_user.set_password(serializer.data.get("new_password"))
         current_user.save()
 
